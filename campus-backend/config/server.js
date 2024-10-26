@@ -1,6 +1,6 @@
 module.exports = ({ env }) => ({
-  host: env('HOST', '0.0.0.0'),
-  port: env.int('PORT', 1337),
+  host: '0.0.0.0', // Bind to all IP addresses
+  port: env.int('PORT', 1337), // Use the PORT environment variable
   app: {
     keys: env.array('APP_KEYS'),
   },

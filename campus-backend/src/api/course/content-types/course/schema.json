@@ -36,6 +36,12 @@
       "relation": "oneToMany",
       "target": "api::schedule.schedule",
       "mappedBy": "course"
+    },
+    "course_color": {
+      "type": "string"
+    },
+    "instructor": {
+      "type": "text"
     }
   }
 }

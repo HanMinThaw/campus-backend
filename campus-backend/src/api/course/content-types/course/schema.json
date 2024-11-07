@@ -42,6 +42,9 @@
     },
     "instructor": {
       "type": "text"
+    },
+    "section_no": {
+      "type": "string"
     }
   }
 }

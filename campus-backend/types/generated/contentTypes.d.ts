@@ -396,6 +396,7 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     schedules: Schema.Attribute.Relation<'oneToMany', 'api::schedule.schedule'>;
+    section_no: Schema.Attribute.String;
     students: Schema.Attribute.Relation<'manyToMany', 'api::student.student'>;
     type: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

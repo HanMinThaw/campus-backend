@@ -4,7 +4,8 @@
   "info": {
     "singularName": "advisor",
     "pluralName": "advisors",
-    "displayName": "Advisor"
+    "displayName": "advisor",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,7 +18,8 @@
     "students": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::student.student"
+      "target": "api::student.student",
+      "mappedBy": "advisor"
     }
   }
 }

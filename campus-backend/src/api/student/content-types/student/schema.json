@@ -43,6 +43,12 @@
     },
     "school_name": {
       "type": "text"
+    },
+    "advisor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::advisor.advisor",
+      "inversedBy": "students"
     }
   }
 }

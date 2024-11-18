@@ -372,7 +372,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAdvisorAdvisor extends Struct.CollectionTypeSchema {
   collectionName: 'advisors';
   info: {
-    displayName: 'Advisor';
+    description: '';
+    displayName: 'advisor';
     pluralName: 'advisors';
     singularName: 'advisor';
   };
@@ -491,6 +492,7 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    advisor: Schema.Attribute.Relation<'manyToOne', 'api::advisor.advisor'>;
     courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

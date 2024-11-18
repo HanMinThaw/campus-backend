@@ -369,6 +369,35 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdvisorAdvisor extends Struct.CollectionTypeSchema {
+  collectionName: 'advisors';
+  info: {
+    displayName: 'Advisor';
+    pluralName: 'advisors';
+    singularName: 'advisor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    advisor_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::advisor.advisor'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    students: Schema.Attribute.Relation<'oneToMany', 'api::student.student'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   collectionName: 'courses';
   info: {
@@ -480,6 +509,7 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::schedule.schedule'
     >;
+    school_name: Schema.Attribute.Text;
     student_id: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -994,6 +1024,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::advisor.advisor': ApiAdvisorAdvisor;
       'api::course.course': ApiCourseCourse;
       'api::schedule.schedule': ApiScheduleSchedule;
       'api::student.student': ApiStudentStudent;

@@ -40,6 +40,9 @@
       "relation": "manyToMany",
       "target": "api::schedule.schedule",
       "mappedBy": "students"
+    },
+    "school_name": {
+      "type": "text"
     }
   }
 }
